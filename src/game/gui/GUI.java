@@ -773,102 +773,49 @@ public class GUI extends Application implements EventHandler<ActionEvent> {
 	}
 
 	private void updateTitans() {
-	    List<Lane> lanes = this.battle.getOriginalLanes();
-	    titanPane.getChildren().clear();
-	    int i = 0;
-	    for (Lane lane : lanes) {
-	        if(lane.isLaneLost())
-	            continue;
-	        for (Titan titan : lane.getTitans()) {
-	            if (titan instanceof PureTitan) {
-	                titanView = new ImageView(pureImage);
-	                titanView.setFitHeight(25);
-	                titanView.setFitWidth(30);
-	            } else if (titan instanceof AbnormalTitan) {
-	                titanView = new ImageView(abnormalImage);
-	                titanView.setFitHeight(16.6);
-	                titanView.setFitWidth(30);
-	            } else if (titan instanceof ArmoredTitan) {
-	                titanView = new ImageView(armoredImage);
-	                titanView.setFitHeight(25);
-	                titanView.setFitWidth(30);
-	            } else if (titan instanceof ColossalTitan) {
-	                titanView = new ImageView(colossalImage);
-	                titanView.setFitHeight(100);
-	                titanView.setFitWidth(80);
-	            } else {
-	                throw new IllegalArgumentException("Unknown Titan type");
-	            }
+		List<Lane> lanes = this.battle.getOriginalLanes();
+		titanPane.getChildren().clear(); // Clear the titanPane at the start
+		int i = 0;
 
-	            AnchorPane titanPane = new AnchorPane();
+		for (Lane lane : lanes) {
+			if (lane.isLaneLost()) continue;
 
-	            if (titan instanceof ColossalTitan) {
-	                titanView.setLayoutX(440 - titan.getDistance() * -5.5); // Adjust the multiplier as needed
-	                titanView.setLayoutY(200 + i * 100); // Adjust the multiplier as needed
-	            } else {
-	                titanView.setLayoutX(440 - titan.getDistance() * -5.5); // Adjust the multiplier as needed
-	                titanView.setLayoutY(275 + i * 100); // Adjust the multiplier as needed
-	            }
+			for (Titan titan : lane.getTitans()) {
+				if (titan instanceof PureTitan) {
+					titanView = new ImageView(pureImage);
+					titanView.setFitHeight(25);
+					titanView.setFitWidth(30);
+				} else if (titan instanceof AbnormalTitan) {
+					titanView = new ImageView(abnormalImage);
+					titanView.setFitHeight(16.6);
+					titanView.setFitWidth(30);
+				} else if (titan instanceof ArmoredTitan) {
+					titanView = new ImageView(armoredImage);
+					titanView.setFitHeight(25);
+					titanView.setFitWidth(30);
+				} else if (titan instanceof ColossalTitan) {
+					titanView = new ImageView(colossalImage);
+					titanView.setFitHeight(100);
+					titanView.setFitWidth(80);
+				} else {
+					throw new IllegalArgumentException("Unknown Titan type");
+				}
 
-	            if(titan.isDefeated()) {
-	                grid.getChildren().remove(titanView);
-	                titanPane.getChildren().remove(titanView);
-	            }
-	            grid.getChildren().remove(titanView);
-	            titanPane.getChildren().remove(titanView);
-	            titanPane.getChildren().clear();
-	            titanPane.getChildren().add(titanView);
-	            grid.getChildren().add(titanPane);
-	        }
-	        i++;
-	    }
+				// Set the position of the titan
+				titanView.setLayoutX(440 - titan.getDistance() * -5.5);
+				titanView.setLayoutY((titan instanceof ColossalTitan ? 200 : 275) + i * 100);
+
+				// Add the titanView to the titanPane
+				titanPane.getChildren().add(titanView);
+			}
+			i++;
+		}
+
+		// Ensure the titanPane is added to the grid only once
+		if (!grid.getChildren().contains(titanPane)) {
+			grid.getChildren().add(titanPane);
+		}
 	}
-
-	/*
-	 * private void updateTitans() { PriorityQueue<Lane> l= this.battle.getLanes();
-	 * int i=0; gameGrid.getChildren().removeAll(this.titanbuttons); for(Lane lane:
-	 * l) {
-	 * 
-	 * // Pure 15 // Abnormal 10 // Armored 15 // Colossal 60
-	 * 
-	 * 
-	 * for(Titan titan: lane.getTitans()) { TitanBuutons b= new TitanBuutons();
-	 * if(titan instanceof PureTitan) { //change image accordingly Button
-	 * titanbutton
-	 * =b.createButton("file:///C:/Users/karim/Downloads/Pure%20titan.jpeg");
-	 * titanbutton.setText(""+i); //
-	 * System.out.println(""+i+" "+titan.getDistance());
-	 * gameGrid.add(titanbutton,(titan.getDistance()/11),i);
-	 * this.titanbuttons.add(titanbutton); if(titan.isDefeated()) {
-	 * grid.getChildren().remove(titanbutton); } } else if (titan instanceof
-	 * AbnormalTitan) { Button titanbutton
-	 * =b.createButton("file:///C:/Users/karim/Downloads/Pure%20titan.jpeg");
-	 * titanbutton.setText(""+i); //
-	 * System.out.println(""+i+" "+titan.getDistance());
-	 * gameGrid.add(titanbutton,(titan.getDistance()/11),i);
-	 * this.titanbuttons.add(titanbutton); if(titan.isDefeated()) {
-	 * grid.getChildren().remove(titanbutton); } } else if (titan instanceof
-	 * ArmoredTitan) { Button titanbutton
-	 * =b.createButton("file:///C:/Users/karim/Downloads/Pure%20titan.jpeg");
-	 * titanbutton.setText(""+i); //
-	 * System.out.println(""+i+" "+titan.getDistance());
-	 * gameGrid.add(titanbutton,(titan.getDistance()/11),i);
-	 * this.titanbuttons.add(titanbutton); if(titan.isDefeated()) {
-	 * grid.getChildren().remove(titanbutton); } } else if (titan instanceof
-	 * ColossalTitan) { Button titanbutton
-	 * =b.createButton("file:///C:/Users/karim/Downloads/Pure%20titan.jpeg");
-	 * titanbutton.setText(""+i); //
-	 * System.out.println(""+i+" "+titan.getDistance());
-	 * gameGrid.add(titanbutton,(titan.getDistance()/11),i);
-	 * this.titanbuttons.add(titanbutton); if(titan.isDefeated()) {
-	 * grid.getChildren().remove(titanbutton); } }
-	 * 
-	 * 
-	 * } i++; // System.out.println(); }
-	 * 
-	 * 
-	 * }
-	 */
 
 	public int getSelectedDifficulty() {
 		return selectedDifficulty;
