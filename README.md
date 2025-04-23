@@ -212,7 +212,6 @@ test
 ```mermaid
 graph TD
     A[Start] --> B{Set Up Lanes and Walls and Initial Turn count and battle phase}
-    B -- Yes --> C[Do something]
-    B -- No --> D[Do something else]
+    B --> C[Player's turn]
     C --> E[End]
 
