@@ -127,45 +127,46 @@ actions.
 
 ## Game Rules
 
-Winning and losing Conditions: The game will have no winning
+**Winning and losing Conditions:** The game will have **no winning**
 condition and the player will keep playing and defeat as many enemies as
-possible. The player loses when all the starting lanes become lost lanes
+possible. The player **loses** when all the starting lanes become **lost lanes**
 (All their Wall Parts are destroyed) and the accumulated score by then is
 the player’s final score.
 
-Titan Movement: Each turn, every titan inside all of the active lanes that
+**Titan Movement:** Each turn, every titan inside all of the active lanes that
 has not reached the walls yet will move closer to the wall (The distance
 from the wall will decrease) a distance equal to their speed stat. Note that
 Colossal titans gain an extra speed of 1 “Distance Unit” per movement
 action.
-Attack Actions: Both Titans and Weapons are able to perform attack
+**Attack Actions:** Both Titans and Weapons are able to perform attack
 actions:
 
-    1- Titans: Each turn, only titans inside active lanes that have already <br> reached the wall (distance from wall is 0) will perform their attack action on the wall part of their lane (reducing the Wall Part’s HP by the amount of that Titan’s damage). Note that Abnormal Titans perform their attack
-actions twice per turn.
-2- Weapons: Each turn, only weapons that are deployed into active lanes
+**1- Titans:** Each turn, only titans inside active lanes that have already reached the wall (distance from wall is 0) will perform their attack action on the wall part of their lane (reducing the Wall Part’s HP by the amount of that Titan’s damage). Note that Abnormal Titans perform their attack actions twice per turn.
+
+**2- Weapons:** Each turn, only weapons that are deployed into active lanes
 will perform their attack action on the titans their lane (reducing the
 Titans’ HP by the amount of that Weapon’s damage). Each weapon will
 follow the above weapons table on which titans to attack.
-Defeated Attack Targets: Since Titans and Wall Parts can be attacked,
+
+**Defeated Attack Targets:** Since Titans and Wall Parts can be attacked,
 they can be defeated/destroyed. This happens when the attack target’s HP
 is dropped to 0 or below as a result of an attack. Defeated Titans are
-removed from the lanes they were in (and the game) and their resources
-
-value is added to the player’s gathered resources as well as the player’s
+removed from the lanes they were in (and the game) and their resourcesvalue is added to the player’s gathered resources as well as the player’s
 score (score increases with the same value as the gathered resources). If a
 Wall Part is destroyed, the lane with this Wall Part is then marked as a Lost
 Lane and not an active Lane. Lost Lanes can not have weapons deployed
 to them nor will have any more Titans spawning in them.
-Approaching Titans: This is a queue of titans that are not yet added to
+
+**Approaching Titans:** This is a queue of titans that are not yet added to
 any lane. However, it is used to decide which Titan types will be added to
 the active lanes each turn. Whenever it is time to add a new Titan to an
-active lane, the titan at the front of this approaching titans queue is
+active lane, the titan at the front of this **approaching titans** queue is
 removed and then added to the intended lane. If the queue is empty while
-attempting to remove a titan, then the queue is refilled with multiple
-titans according to the below table.
-Titans Spawning & Battle Phase change: Each turn, A specific
-number of titans (Initially 1) is removed from the Approaching Titans
+attempting to remove a titan, then the queue is refilled with **multiple**
+titans according to the below table
+
+**Titans Spawning & Battle Phase change:** Each turn, A specific
+**number** of titans (Initially 1) is removed from the **Approaching Titans**
 and added to the lane with the least danger level. A Lane’s danger level is
 the sum of all the titans’ danger levels inside this lane. If, while attempting
 to get an approaching titan, all of the approaching titans have been added
@@ -185,8 +186,8 @@ number of turns.
 | 35      |              | 2<br>(then doubles every<br>5 turns)   |                                                                         |
 
 
-Weapon Purchase: The player will have the option to see all the available
-types of weapons and can choose to buy and deploy them into their
+**Weapon Purchase:** The player will have the option to see all the available
+types of weapons and can **choose** to buy and deploy them into their
 choice of an active lane. To purchase a weapon, the player should have
 enough resources (higher than the weapon’s price) and then the weapon’s
 price is deducted from the gathered resources.
@@ -196,6 +197,15 @@ turn will proceed as follows. After the player’s action, The titans will do
 their move action. Then the weapons will do their attack action followed by
 the titans’ attack actions. After that, Titans will be added to the lanes
 according to the logic mentioned above. Finally, finalizing the turn by
+updating the battle phase and the relevant info if needed based on the
+number of elapsed turns, also according to the logic mentioned above.
+
+**Turn Actions:** Each turn the player can choose to either **Purchase and
+Deploy** a Weapon or **pass** their turn without any actions. Either way the
+turn will proceed as follows. After the player’s action, The titans will do
+their move action. Then the weapons will do their attack action followed by
+the titans’ attack actions. After that, Titans will be added to the lanes
+according to the logic mentioned above. Finally, **finalizing the turn** by
 updating the battle phase and the relevant info if needed based on the
 number of elapsed turns, also according to the logic mentioned above.
 
