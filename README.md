@@ -140,10 +140,8 @@ Colossal titans gain an extra speed of 1 “Distance Unit” per movement
 action.
 Attack Actions: Both Titans and Weapons are able to perform attack
 actions:
-1- Titans: Each turn, only titans inside active lanes that have already
-reached the wall (distance from wall is 0) will perform their attack action
-on the wall part of their lane (reducing the Wall Part’s HP by the amount of
-that Titan’s damage). Note that Abnormal Titans perform their attack
+
+    1- Titans: Each turn, only titans inside active lanes that have already <br> reached the wall (distance from wall is 0) will perform their attack action on the wall part of their lane (reducing the Wall Part’s HP by the amount of that Titan’s damage). Note that Abnormal Titans perform their attack
 actions twice per turn.
 2- Weapons: Each turn, only weapons that are deployed into active lanes
 will perform their attack action on the titans their lane (reducing the
@@ -202,12 +200,6 @@ updating the battle phase and the relevant info if needed based on the
 number of elapsed turns, also according to the logic mentioned above.
 
 ## Game Flow
-
-idk how to make Flowcharts :)
-
-test
-test
-
 
 ```mermaid
 graph TD
