@@ -220,3 +220,6 @@ graph TD
     F --> G{Titans Attack Action}
     G --> H{Add from Approaching Titans to Lanes}
     H --> I{Finalize Turn by Updating phase, turns, etc.}
+    I --> B
+        end
+```
