@@ -1,5 +1,7 @@
 package game.gui;
 
+//--add-opens javafx.graphics/com.sun.glass.utils=ALL-UNNAMED --module-path "Path to openjfx" --add-modules javafx.controls,javafx.fxml --add-opens javafx.base/com.sun.javafx=ALL-UNNAMED
+
 import game.engine.*;
 import game.engine.lanes.*;
 import game.engine.titans.*;
