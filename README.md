@@ -211,7 +211,7 @@ test
 
 ```mermaid
 graph TD
-    A[Start] --> B{Decision?}
+    A[Start] --> B{Set Up Lanes and Walls and Initial Turn count and battle phase}
     B -- Yes --> C[Do something]
     B -- No --> D[Do something else]
     C --> E[End]
