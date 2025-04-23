@@ -219,4 +219,4 @@ graph TD
     e --> F{Weapons Attack Action}
     F --> G{Titans Attack Action}
     G --> H{Add from Approaching Titans to Lanes}
-    H --> I{Finalize Turn(Update phase, turns, etc.)}
+    H --> I{Finalize Turn by Updating phase, turns, etc.}
