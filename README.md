@@ -215,4 +215,8 @@ graph TD
     B --> C[Player's turn]
     C -- Purchase Weapon --> D{Update Resources and Deploy Weapon into a Lane}
     C -- Pass --> E{Titans Move Action}
-
+    D --> E
+    e --> F{Weapons Attack Action}
+    F --> G{Titans Attack Action}
+    G --> H{Add from Approaching Titans to Lanes}
+    H --> I{Finalize Turn(Update phase, turns, etc.)}
