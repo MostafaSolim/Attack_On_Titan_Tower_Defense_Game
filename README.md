@@ -213,6 +213,10 @@ test
 graph TD
     A[Start] --> B{Set Up Lanes and Walls and Initial Turn count and battle phase}
     B --> C[Player's turn]
-    C -- Purchase Weapon --> D{Update Resources and Deploy Weapon into a Lane}
-    D --> E[Player chooses a weapon and deploys it in a lane]
+    
+    subgraph left_side [ ]
+        direction LR
+        D{Update Resources and Deploy Weapon into a Lane} --> E[Player chooses a weapon and deploys it in a lane]
+    end
 
+    C -- Purchase Weapon --> D
