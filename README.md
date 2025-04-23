@@ -210,9 +210,10 @@ test
 
 
 ```mermaid
-graph LR
+graph TD
     A[Start] --> B{Set Up Lanes and Walls and Initial Turn count and battle phase}
     B --> C[Player's turn]
-    D{Update Resources and Deploy Weapon into a Lane} --> E[Player chooses a weapon and deploys it in a lane]
-    C -- Purchase Weapon --> D
+    graph LR
+        C -- Purchase Weapon --> D{Update Resources and Deploy Weapon into a Lane}
+        D --> E[Player chooses a weapon and deploys it in a lane]
 
